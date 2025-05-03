@@ -46,6 +46,7 @@ int main(int argc, char *argv[]) {
   // Create a file system model
   QFileSystemModel *model = new QFileSystemModel;
   model->setRootPath(QDir::currentPath()); // Set the current path as root path
+  model->setFilter(QDir::NoDotAndDotDot | QDir::AllEntries); // Filter out "." and ".."
 
   // Create a tree view and a list view
   QTreeView *treeView = new QTreeView;
@@ -57,6 +58,12 @@ int main(int argc, char *argv[]) {
 
   // Set the root index for views
   treeView->setRootIndex(model->index(QDir::currentPath()));
+  
+  // hide the header and columns of the tree view
+  treeView->setHeaderHidden(true);
+  for(int i = 1; i<model->columnCount(); i++){
+    treeView->hideColumn(i);
+  }
   listView->setRootIndex(model->index(QDir::currentPath()));
 
   // Create a splitter to hold the tree view and list view
