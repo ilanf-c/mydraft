@@ -13,7 +13,11 @@ public:
   explicit FileExplorer(QWidget *parent = nullptr) : QSplitter(parent) {
     // Set up the file system model
     model = new QFileSystemModel(this);
+    // show hidden files
+    model->setFilter(QDir::NoDotAndDotDot | QDir::AllEntries |
+                    QDir::Hidden | QDir::System);
     model->setRootPath(QDir::currentPath());
+    model->setNameFilterDisables(false);
 
     // left tree view
     treeView = new QTreeView(this);
