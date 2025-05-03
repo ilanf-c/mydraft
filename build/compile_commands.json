@@ -1,0 +1,17 @@
+[
+{
+  "directory": "/home/ilanf/learning/tmp/draft2/build",
+  "command": "clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/ilanf/learning/tmp/draft2/build/draft_autogen/include -I/home/ilanf/learning/tmp/draft2/include -isystem /opt/Qt/6.7.3/gcc_64/include/QtCore -isystem /opt/Qt/6.7.3/gcc_64/include -isystem /opt/Qt/6.7.3/gcc_64/mkspecs/linux-g++ -isystem /opt/Qt/6.7.3/gcc_64/include/QtGui -isystem /opt/Qt/6.7.3/gcc_64/include/QtWidgets  -g -O0 -g -g -O0 -Wall -fno-limit-debug-info -fPIC -std=gnu++17 -o CMakeFiles/draft.dir/draft_autogen/mocs_compilation.cpp.o -c /home/ilanf/learning/tmp/draft2/build/draft_autogen/mocs_compilation.cpp",
+  "file": "/home/ilanf/learning/tmp/draft2/build/draft_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/home/ilanf/learning/tmp/draft2/build",
+  "command": "clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/ilanf/learning/tmp/draft2/build/draft_autogen/include -I/home/ilanf/learning/tmp/draft2/include -isystem /opt/Qt/6.7.3/gcc_64/include/QtCore -isystem /opt/Qt/6.7.3/gcc_64/include -isystem /opt/Qt/6.7.3/gcc_64/mkspecs/linux-g++ -isystem /opt/Qt/6.7.3/gcc_64/include/QtGui -isystem /opt/Qt/6.7.3/gcc_64/include/QtWidgets  -g -O0 -g -g -O0 -Wall -fno-limit-debug-info -fPIC -std=gnu++17 -o CMakeFiles/draft.dir/src/main.cpp.o -c /home/ilanf/learning/tmp/draft2/src/main.cpp",
+  "file": "/home/ilanf/learning/tmp/draft2/src/main.cpp"
+},
+{
+  "directory": "/home/ilanf/learning/tmp/draft2/build",
+  "command": "clang++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/ilanf/learning/tmp/draft2/build/draft_autogen/include -I/home/ilanf/learning/tmp/draft2/include -isystem /opt/Qt/6.7.3/gcc_64/include/QtCore -isystem /opt/Qt/6.7.3/gcc_64/include -isystem /opt/Qt/6.7.3/gcc_64/mkspecs/linux-g++ -isystem /opt/Qt/6.7.3/gcc_64/include/QtGui -isystem /opt/Qt/6.7.3/gcc_64/include/QtWidgets  -g -O0 -g -g -O0 -Wall -fno-limit-debug-info -fPIC -std=gnu++17 -o CMakeFiles/draft.dir/src/MainWindow.cpp.o -c /home/ilanf/learning/tmp/draft2/src/MainWindow.cpp",
+  "file": "/home/ilanf/learning/tmp/draft2/src/MainWindow.cpp"
+}
+]

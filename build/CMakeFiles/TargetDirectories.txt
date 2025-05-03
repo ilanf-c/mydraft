@@ -1,0 +1,5 @@
+/home/ilanf/learning/tmp/draft2/build/CMakeFiles/draft.dir
+/home/ilanf/learning/tmp/draft2/build/CMakeFiles/edit_cache.dir
+/home/ilanf/learning/tmp/draft2/build/CMakeFiles/rebuild_cache.dir
+/home/ilanf/learning/tmp/draft2/build/CMakeFiles/draft_autogen_timestamp_deps.dir
+/home/ilanf/learning/tmp/draft2/build/CMakeFiles/draft_autogen.dir
