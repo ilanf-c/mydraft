@@ -1,9 +1,9 @@
 # ninja log v6
+27	1538	1746254027329014418	CMakeFiles/draft.dir/src/MainWindow.cpp.o	ceecd7dd851e57d6
+3	36	1746254159304904865	draft_autogen/timestamp	d77fc16d2096777d
+3	36	1746254159304904865	draft_autogen/mocs_compilation.cpp	d77fc16d2096777d
+3	36	1746254159304904865	/home/ilanf/learning/tmp/draft2/build/draft_autogen/timestamp	d77fc16d2096777d
+1769	2071	1746254161070821882	draft	77824b49a26ffd4b
+3	36	1746254159304904865	/home/ilanf/learning/tmp/draft2/build/draft_autogen/mocs_compilation.cpp	d77fc16d2096777d
+36	1769	1746254159337903312	CMakeFiles/draft.dir/src/main.cpp.o	11318c76d5fbb2b8
 295	2328	1746204207761632646	CMakeFiles/draft.dir/draft_autogen/mocs_compilation.cpp.o	bd3aeb9c72e4db9
-295	1894	1746204207762632630	CMakeFiles/draft.dir/src/main.cpp.o	11318c76d5fbb2b8
-4	39	1746204641807851273	/home/ilanf/learning/tmp/draft2/build/draft_autogen/mocs_compilation.cpp	d77fc16d2096777d
-1456	1734	1746204643259852267	draft	77824b49a26ffd4b
-4	39	1746204641807851273	/home/ilanf/learning/tmp/draft2/build/draft_autogen/timestamp	d77fc16d2096777d
-4	39	1746204641807851273	draft_autogen/mocs_compilation.cpp	d77fc16d2096777d
-4	39	1746204641807851273	draft_autogen/timestamp	d77fc16d2096777d
-39	1456	1746204641842851296	CMakeFiles/draft.dir/src/MainWindow.cpp.o	ceecd7dd851e57d6

@@ -1,5 +1,10 @@
 #include "MainWindow.hpp"
 #include <QApplication>
+#include <QFileSystemModel>
+#include <QTreeView>
+#include <QListView>
+#include <QSplitter>
+#include <qlistview.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,7 +12,7 @@
 
 #define ERROR 1e5
 
-typedef enum { push, pop, inject, eject, end } Operation;
+// typedef enum { push, pop, inject, eject, end } Operation;
 
 typedef struct Node *PtrToNode;
 
@@ -37,40 +42,38 @@ ElementType Eject(Deque D);
 int main(int argc, char *argv[]) {
 
   QApplication app(argc, argv);
-  MainWindow w;
-  w.show();
+
+  // Create a file system model
+  QFileSystemModel *model = new QFileSystemModel;
+  model->setRootPath(QDir::currentPath()); // Set the current path as root path
+
+  // Create a tree view and a list view
+  QTreeView *treeView = new QTreeView;
+  QListView *listView = new QListView;
+
+  // Set the model for the tree view and list view
+  treeView->setModel(model);
+  listView->setModel(model);
+
+  // Set the root index for views
+  treeView->setRootIndex(model->index(QDir::currentPath()));
+  listView->setRootIndex(model->index(QDir::currentPath()));
+
+  // Create a splitter to hold the tree view and list view
+  QSplitter *splitter = new QSplitter;
+  splitter->addWidget(treeView);
+  splitter->addWidget(listView);
+  // Set the window title with the current directory name
+  splitter->setWindowTitle(
+      QString("File Explorer - %1").arg(QDir::currentPath()));
+  
+  splitter->show();
+
+  // MainWindow w;
+  // splitter->setParent(&w);
+  // w.show();
   return app.exec();
 
-  // printf("Deque Test\n");
-  // Deque D = CreateDeque();
-  // Operation op;
-  // ElementType X;
-  // while (1) {
-  //   scanf("%d", &op);
-  //   if (op == end)
-  //     break;
-  //   switch (op) {
-  //   case push:
-  //     scanf("%d", &X);
-  //     Push(X, D);
-  //     break;
-  //   case pop:
-  //     printf("%d\n", Pop(D));
-  //     break;
-  //   case inject:
-  //     scanf("%d", &X);
-  //     Inject(X, D);
-  //     break;
-  //   case eject:
-  //     printf("%d\n", Eject(D));
-  //     break;
-  //   case end:
-  //     break;
-  //   default:
-  //     printf("Invalid operation\n");
-  //     break;
-  //   }
-  // }
   return 0;
 } // end main
 
