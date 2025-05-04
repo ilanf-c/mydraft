@@ -1,3 +1,4 @@
+#pragma once // Ensures the header file is included only once during compilation
 #include <QApplication>
 #include <QDebug>
 #include <QDir>

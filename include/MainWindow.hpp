@@ -1,20 +1,55 @@
-#pragma once
+#pragma once // Ensures the header file is included only once during compilation
 #include "DocumentModel.hpp"
 #include "FileSystemModel.hpp"
 #include <QDir>
+#include <QFormLayout>
+#include <QLabel>
 #include <QMainWindow>
+#include <QMenu>
+#include <QMessageBox>
 #include <QSplitter>
 #include <QTabWidget>
 #include <QTextEdit>
 #include <QTreeView>
 #include <QWidget>
-#include <qnamespace.h>
-
+#include <qcontainerfwd.h>
 class MainWindow : public QMainWindow {
   Q_OBJECT            // have to include this macro to use signals and slots
       private slots : // Uncomment this if you want to use private slots
+                      void
+                      showFileProperties(const QString &path) {
+    QFileInfo fileInfo(path);
+    if (!fileInfo.exists()) {
+      QMessageBox::warning(this, "File Not Found",
+                           "The file does not exist." + fileInfo.fileName());
+      return;
+    }
 
-                      public : MainWindow(QWidget *parent = nullptr);
+    QDialog dialog(this);
+    dialog.setWindowTitle("File Properties - " + fileInfo.fileName());
+
+    QFormLayout *layout = new QFormLayout(&dialog);
+    auto addRow = [&](const QString &label, const QString &value) {
+      layout->addRow(new QLabel(label, &dialog), new QLabel(value, &dialog));
+    };
+
+    addRow("File Path:", fileInfo.absoluteFilePath());
+    addRow("File Size: ", QString("%1 bytes").arg(fileInfo.size()));
+    addRow("File Type:", fileInfo.suffix());
+    addRow("Last Modified:", fileInfo.lastModified().toString());
+    addRow("Last Accessed:", fileInfo.lastRead().toString());
+    addRow("Created:", fileInfo.birthTime().toString());
+    addRow("Permission:",
+           QString("%1%2%3")
+               .arg(fileInfo.permission(QFile::ReadUser) ? "r" : "-")
+               .arg(fileInfo.permission(QFile::WriteUser) ? "w" : "-")
+               .arg(fileInfo.permission(QFile::ExeUser) ? "x" : "-"));
+
+    dialog.exec();
+  }
+
+public:
+  MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
 
 private:
@@ -33,6 +68,19 @@ private:
     m_fileView->setRootIndex(m_fsModel->index(QDir::currentPath()));
     m_fileView->setHeaderHidden(true);
     m_fileView->setColumnHidden(1, true); // Hide the second column
+
+    m_fileView->setContextMenuPolicy(Qt::CustomContextMenu);
+    connect(m_fileView, &QTreeView::customContextMenuRequested,
+            [this](const QPoint &pos) {
+              QModelIndex index = m_fileView->indexAt(pos);
+              if (index.isValid()) {
+                QMenu *menu = new QMenu;
+                menu->addAction("Properties", [this, index]() {
+                  showFileProperties(m_fsModel->filePath(index));
+                });
+                menu->exec(m_fileView->viewport()->mapToGlobal(pos));
+              }
+            });
 
     m_docView = new QTabWidget;
     m_docView->setTabsClosable(true);

@@ -1,16 +1,18 @@
-#pragma once
+#pragma once // Ensures the header file is included only once during compilation
 #include <QAbstractListModel>
 #include <QFile>
 #include <QFileInfo>
 #include <QModelIndex>
 #include <QVector>
-#include <qabstractitemmodel.h>
+#include <QtConcurrent/QtConcurrent>
 
 class DocumentModel : public QAbstractListModel {
   Q_OBJECT
 public:
   enum Roles {
-    FilePathRole = Qt::UserRole + 1,
+    FilePathRole =
+        Qt::UserRole + 1, // Qt::UserRole + 1 is used to ensure custom roles do
+                          // not overlap with Qt's predefined roles.
     ModifiedRole,
     ContentRole
     /* add new role */

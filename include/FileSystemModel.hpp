@@ -1,4 +1,4 @@
-#pragma once
+#pragma once // Ensures the header file is included only once during compilation
 #include <QFileSystemModel>
 
 class FileSystemModel : public QFileSystemModel {
