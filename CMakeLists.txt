@@ -26,7 +26,9 @@ add_executable(draft
     src/main.cpp
     src/MainWindow.cpp
     include/MainWindow.hpp
-    include/FileExplorer.hpp
+    # include/FileExplorer.hpp
+    include/DocumentModel.hpp
+    include/FileSystemModel.hpp
 )
 
 # link Qt libraries
